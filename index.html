@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cardo:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Zentry - work productively</title>
+
+    <style>
+        .font-poppins {
+        font-family: 'Poppins', sans-serif;
+        }
+        .font-cardo {
+            font-family: 'Cardo', serif;
+        }
+        .font-bricolage {
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        @keyframes carousel {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+        }
+
+        .animate-carousel {
+            animation: carousel 60s linear infinite;
+        }
+
+        </style>
+
+</head>
+<body class="bg-[#1f1f1f]">
+    <header class="flex flex-row items-center justify-between m-8">
+        <div class="flex items-center gap-x-4">
+            <img src="assets/icons/zentryapp.png" alt="Zentryapp Logo" class="w-10">
+            <h1 class="text-[#d1cfc0] font-medium text-2xl">Zentry</h1>
+        </div>
+        
+        <ul class="flex items-center gap-x-6">
+            <li>
+                <a href="#getting-started" class="text-[#d1cfc0] font-medium hover:underline">Getting Started</a>
+            </li>            
+            <li>
+                <a href="#support-team" class="text-[#d1cfc0] font-medium hover:underline">Support Team</a>
+            </li>            
+            <li>
+                <a id="disclaimer" class="text-[#d1cfc0] font-medium cursor-pointer hover:underline">Disclaimer</a>
+            </li>
+        </ul>
+    </header>
+    
+    <section id="main" 
+    class="text-center my-16">
+        <h1 class="text-[#d1cfc0] text-3xl font-cardo my-1">welcome to a <span class="text-[rgb(247,111,83)] italic">less cluttered</span> to-do list, or not?</h1>
+        <p class="font-bricolage text-[#d1cfc0] font-medium">We are passionate about offering you with powerful tools for focusing.<br>Make your workspace more productive.</p>
+        <button id="startWorkingBtn" 
+        class="font-bricolage text-[#1f1f1f] bg-[#d1cfc0] px-6 py-4 rounded-xl my-4 hover:scale-105 transition-all duration-300 ease-in-out">Start working right now! →</button>
+    </section>
+
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <section id="disclaimerMessage" class="bg-[#d1cfc0] w-96 flex flex-col p-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 shadow-lg rounded-xl hidden">
+        <h1 class="text-[#1f1f1f] font-bold text-xl">Disclaimer</h1>
+        <p class="text-[#1f1f1f] font-medium">
+            <br>This project and its visual design are heavily inspired by <b>Zen Browser</b> (<a href="https://zenbrowser.com" target="_blank" class="text-[rgb(247,111,83)] underline">https://zenbrowser.com</a>). <br><br>Some elements of the layout, color scheme, and overall aesthetic may closely resemble those used in Zen Browser’s original interface. <br><br>All trademarks, logos, and design rights pertaining to Zen Browser remain the exclusive property of their respective owners. This project was created for personal and educational purposes only. <br><br>No commercial use or redistribution is intended. If you are the owner of the original design and have concerns about its use in this project, please contact us, and we will respond promptly.
+        </p>
+        <button id="closeDisclaimer" class="font-bricolage text-[#d1cfc0] bg-[#1f1f1f] px-6 py-4 my-4 rounded-xl hover:scale-105 transition-all duration-300 ease-in-out">I understand, close window</button>
+    </section>
+
+<section id="why-us">
+    <h2 class="text-center text-3xl font-bold text-[rgb(247,111,83)]">Why Us?</h2>
+    <div class="bg-[#1f1f1f] py-10 overflow-hidden">
+    <div class="relative w-full">
+        <div class="carousel-track flex w-max animate-carousel">
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            🚀 <b>Lightning Fast:</b><br>
+            Get organized in seconds with our ultra-fast interface.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            🎨 <b>Simple & Modern:</b><br>
+            A calm, clean workspace that's easy on your eyes.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            🔒 <b>Always Private:</b><br>
+            Your data stays yours, always secure.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            🧠 <b>Smart Suggestions:</b><br>
+            Get helpful tips and reminders based on your habits.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            ⏰ <b>Zero Distraction:</b><br>
+            Focus mode helps you work without notifications or popups.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            💡 <b>Easy to Use:</b><br>
+            Start using all features in minutes, no complicated setup.
+        </div>
+        <!-- DUPLICATE CARDS for infinite effect -->
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            🚀 <b>Lightning Fast:</b><br>
+            Get organized in seconds with our ultra-fast interface.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            🎨 <b>Simple & Modern:</b><br>
+            A calm, clean workspace that's easy on your eyes.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            🔒 <b>Always Private:</b><br>
+            Your data stays yours, always secure.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            🧠 <b>Smart Suggestions:</b><br>
+            Get helpful tips and reminders based on your habits.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            ⏰ <b>Zero Distraction:</b><br>
+            Focus mode helps you work without notifications or popups.
+        </div>
+        <div class="card bg-[#d1cfc0] text-[#1f1f1f] rounded-xl font-medium p-6 mx-4 min-w-[320px] max-w-[320px]">
+            💡 <b>Easy to Use:</b><br>
+            Start using all features in minutes, no complicated setup.
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

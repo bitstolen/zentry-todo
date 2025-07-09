@@ -1,0 +1,24 @@
+{
+  "name": "zentry-todo",
+  "version": "1.0.0",
+  "description": "📋 A minimalist to-do list app for calm, focused productivity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitstolen/zentry-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bitstolen/zentry-todo/issues"
+  },
+  "homepage": "https://github.com/bitstolen/zentry-todo#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  }
+}

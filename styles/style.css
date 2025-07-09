@@ -1,0 +1,33 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.font-cardo {
+    font-family: 'Cardo', serif;
+}
+
+.font-bricolage {
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+@keyframes grow-bar {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.animate-grow-bar {
+    animation: grow-bar 5s ease-out forwards;
+}
+
+@keyframes carousel {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-carousel {
+    animation: carousel 60s linear infinite;
+}

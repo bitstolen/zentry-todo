@@ -7,9 +7,90 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cardo:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Zentry Tasks</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Zentry - work productively</title>
+    <style>
+        body {
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="bg-[#1f1f1f] overflow-x-hidden">
+    <!-- HEADER -->
+    <header class="flex flex-row items-center justify-between m-8">
+        <div class="flex items-center gap-x-4">
+            <img src="/assets/icons/zentryapp.png" alt="Zentryapp Logo" class="w-10">
+            <h1 class="text-[#d1cfc0] font-medium text-2xl">Zentry</h1>
+        </div>
+
+        <div id="hamburger-btn" class="flex flex-col gap-y-2 cursor-pointer md:hidden">
+            <div class="w-8 h-1 bg-white"></div>
+            <div class="w-8 h-1 bg-white"></div>
+            <div class="w-8 h-1 bg-white"></div>
+        </div>
+
+        <ul class="hidden md:flex items-center gap-x-6">
+            <li><a href="/index.html" class="text-[#d1cfc0] font-medium hover:underline">Getting Started</a></li>            
+            <li><a id="supportTeamBtn" href="#support-team" class="text-[#d1cfc0] font-medium hover:underline">Support Team</a></li>            
+            <li><a class="disclaimer text-[#d1cfc0] font-medium cursor-pointer hover:underline">Disclaimer</a></li>
+        </ul>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="hamburger-shown" class="flex items-center justify-center text-center text-xl md:hidden hidden">
+        <ul class="md:flex items-center gap-x-6">
+            <li><a href="/index.html" class="text-[#d1cfc0] font-medium hover:underline">Getting Started</a></li>            
+            <li><a id="supportTeamBtn" href="#support-team" class="text-[#d1cfc0] font-medium hover:underline">Support Team</a></li>            
+            <li><a class="disclaimer text-[#d1cfc0] font-medium cursor-pointer hover:underline">Disclaimer</a></li>
+        </ul>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="max-w-xs flex flex-col fixed p-6 top-4 right-6 bg-[#d1cfc0] rounded-xl shadow-lg overflow-hidden hidden">
+        <div id="bar" class="bg-[rgb(247,111,83)] w-80 h-1 absolute top-0 left-0"></div>
+        <h1 class="text-[#1f1f1f] font-bold mb-2">Notification 🔔</h1>
+        <p class="text-[#1f1f1f] font-medium text-sm">Unfortunately, we cannot accept any payments right now. Please try again later or contact our team!</p>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <!-- Disclaimer Modal -->
+    <section id="disclaimerMessage" class="bg-[#d1cfc0] w-96 flex flex-col p-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 shadow-lg rounded-xl hidden">
+        <h1 class="text-[#1f1f1f] font-bold text-xl">Disclaimer</h1>
+        <p class="text-[#1f1f1f] font-medium">
+            <br>This project and its visual design are heavily inspired by <b>Zen Browser</b> (<a href="https://zen-browser.app" target="_blank" class="text-[rgb(247,111,83)] underline">https://zen-browser.app</a>). <br><br>
+            Some elements of the layout, color scheme, and overall aesthetic may closely resemble those used in Zen Browser’s original interface. <br><br>
+            All trademarks, logos, and design rights pertaining to Zen Browser remain the exclusive property of their respective owners. This project was created for personal and educational purposes only. <br><br>
+            No commercial use or redistribution is intended. If you are the owner of the original design and have concerns about its use in this project, please contact us, and we will respond promptly.
+        </p>
+        <button id="closeDisclaimer" class="font-bricolage text-[#d1cfc0] bg-[#1f1f1f] px-6 py-4 my-4 rounded-xl hover:scale-105 transition-all duration-300 ease-in-out">I understand, close window</button>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section id="todo-start" class="text-center text-[#d1cfc0] font-bricolage my-24">
+        <h2 class="font-bold text-6xl">What's on your mind today?</h2>
+        <p class="text-xl my-4">Plan your day, conquer and get ready for a productive day.</p>
+    </section>
+
+    <!-- TO-DO LIST SECTION -->
+    <section id="planned-tasks" class="flex flex-col items-center mb-24">
+        <div class="bg-[#2a2a2a] p-8 rounded-2xl shadow-xl w-full max-w-lg">
+            <h2 class="font-bold text-4xl text-center text-[#d1cfc0] mb-6">Your tasks</h2>
+            
+            <!-- Form -->
+            <form class="flex gap-2 mb-6">
+                <input id="taskInput" type="text" placeholder="Add a new task..." class="flex-grow px-4 py-3 rounded-xl bg-[#3a3a3a] text-[#d1cfc0] focus:outline-none">
+                <button id="addTaskBtn" type="submit" class="bg-[rgb(247,111,83)] hover:bg-[rgb(230,90,60)] text-white font-bold px-6 py-3 rounded-xl transition">Add</button>
+            </form>
+
+            <!-- Task list -->
+            <ul id="taskList" class="space-y-3 font-medium text-xl">
+                <!-- Tasks will be dynamically added here -->
+            </ul>
+        </div>
+    </section>
+
+    <script src="/scripts/functionality.js"></script>
 </body>
 </html>
